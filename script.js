@@ -1,4 +1,3 @@
-
 const projectsData = [
   {
     id: 1,
@@ -33,7 +32,7 @@ const projectsData = [
     img: "portfolio.png",
     git: "https://github.com/klelik/portfolio-main",
 
-    deploy: "https://github.io/klelik/weather-app",
+    deploy: "https://lika.dev/",
   },
   {
     id: 5,
@@ -66,20 +65,18 @@ const projectsData = [
 var exp = document.querySelector(".exp");
 var changeBox = document.querySelector(".inside-card");
 // console.log(exp);
-var box =  document.querySelector("box");
+var box = document.querySelector("box");
 mainShow();
 
 function mainShow() {
   changeBox.style.opacity = "1";
-  changeBox.style.flexDirection="column"
-
+  changeBox.style.flexDirection = "column";
 
   changeBox.innerHTML = `
     <h1>Hello World &#x1F44B !</h1>
     <br>
 
-    <p>I'm <strong>Klement Lika</strong>, a Web Engineering Student from UTH  and chair of <a href="https://ieee-ensias.tech/">IEEE ENSIAS
-        Student Branch. </a></p>
+    <p>I'm <strong>Klement Lika</strong>, a Web Developer</p>
     <br>
 
     <p>Hello, This Is Me. I Am Passionate On Coding, Have A Good Learning Attitude, Love Exploring New Things And Accepting New Challenges.
@@ -92,10 +89,10 @@ function mainShow() {
     
     As A Member Of The Community, It Would Be A Great Pleasure If I Could Be Involved In The Coming Cohort And I Hope My Abilities And Passion Would Make Contribution To The Groupmates And Achieve Collective Learning.</p>
     <br>
-    <a href="https://drive.google.com/file/d/1NAfTZ_1FknrnCiSsQp9eKtZSka-f9QDV/view?usp=sharing" target="_blank">
+    <a href="My CV" target="_blank">
 
       <div class="glassbutton">
-        <p>View my CV (French)</p>
+        <p>View my CV</p>
       </div>
     </a>
   `;
@@ -168,26 +165,22 @@ function skillsShow() {
 // console.log("skills");
 
 function expShow() {
-  setTimeout(() => {
-    changeBox.style.opacity = "1";
+  changeBox.style.opacity = "1";
 
-    changeBox.innerHTML = "<p>Experience</p>";
-  }, 500);
+  changeBox.innerHTML = "<p>Experience</p>";
 }
 
 const showData = projectsData.map((project, index) => {
-
   return `
   <div class="slide-up">
   <div class="box">
   <img src="assets/${project.img}" >  
     <span class="original" >
       <h1 class= "project-title">${project.title}</h1>
-      <p>Slide in from left</p>
     </span>
     <div class="overlay">
-    <i class="fa-brands fa-github"></i>
-    <i class="fa-solid fa-satellite-dish"></i>
+     <a href = "${project.git}" target="_blank"> <i class="fa-brands fa-github"></i> </a> 
+     <a href = "${project.deploy}" target="_blank"> <i class="fa-solid fa-satellite-dish"></i></a>
   
     </div>
   </div>
@@ -197,6 +190,6 @@ const showData = projectsData.map((project, index) => {
 
 function projShow() {
   changeBox.classList.add("show");
-  changeBox.style.flexDirection="row"
+  changeBox.style.flexDirection = "row";
   changeBox.innerHTML = showData.join("");
 }
