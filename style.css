@@ -2,15 +2,17 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 
+/* @link https://utopia.fyi/type/calculator?c=299,10,1.2,800,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
 :root {
-  --step--2: clamp(0.78rem, calc(0.77rem + 0.03vw), 0.8rem);
-  --step--1: clamp(0.94rem, calc(0.92rem + 0.11vw), 1rem);
-  --step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
-  --step-1: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
-  --step-2: clamp(1.62rem, calc(1.5rem + 0.58vw), 1.95rem);
-  --step-3: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
-  --step-4: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
-  --step-5: clamp(2.8rem, calc(2.45rem + 1.77vw), 3.82rem);
+  --step--2: clamp(0.43rem, calc(0.22rem + 1.17vw), 0.80rem);
+  --step--1: clamp(0.52rem, calc(0.23rem + 1.53vw), 1.00rem);
+  --step-0: clamp(0.63rem, calc(0.25rem + 2.00vw), 1.25rem);
+  --step-1: clamp(0.75rem, calc(0.27rem + 2.59vw), 1.56rem);
+  --step-2: clamp(0.90rem, calc(0.27rem + 3.36vw), 1.95rem);
+  --step-3: clamp(1.08rem, calc(0.27rem + 4.35vw), 2.44rem);
+  --step-4: clamp(1.30rem, calc(0.25rem + 5.61vw), 3.05rem);
+  --step-5: clamp(1.56rem, calc(0.21rem + 7.22vw), 3.82rem);
 }
 
 * {
@@ -21,6 +23,8 @@
 }
 body {
   font-size: var(--step-0);
+  height: 100vh;
+  width: 100vw;
 }
 
 h1 {
@@ -45,19 +49,18 @@ h3 {
   font-size: 20px;
   opacity: 0.8;
 }
-a {
+/* a {
   flex: 0;
   outline: 0;
   text-decoration: none;
-}
+} */
 main {
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
   background: rgb(236,196,196);
   background: linear-gradient(90deg, rgba(236,196,196,1) 0%, rgba(148,187,233,1) 72%); 
-   display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 }
 .glassbutton {
   display: flex;
@@ -78,9 +81,11 @@ main {
   padding: 1rem;
 }
 .glass {
+  /* border: rgb(11, 69, 245) 3px solid; */
+
   /* background: white; */
-  margin: 51px;
-  width: 75%;
+  /* margin-left: 51px; */
+  width: 90vw;
   /* background: linear-gradient(
       to right bottom,
       rgba(255, 255, 255, 0.7),
@@ -88,9 +93,14 @@ main {
     ); */
   border-radius: 2rem;
   z-index: 2;
-  backdrop-filter: blur(.4rem);
+  /* backdrop-filter: blur(.4rem); */
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  /* gap: 1rem; */
+  height: 45rem;
+  
 }
 .circle1,
 .circle2 {
@@ -115,6 +125,8 @@ main {
   left: 7%;
 }
 .dashboard {
+  /* border: rgb(245, 4, 4) 3px solid; */
+  padding: 2vw;
   flex: 0;
   display: flex;
   flex-direction: column;
@@ -129,15 +141,15 @@ main {
     rgba(255, 255, 255, 0.3)
   );
   border-radius: 2rem;
-  width: 42vw;
-  min-width: 18rem;
-  /* max-width: 25rem; */
-
+  /* min-width: 350px; */
+  /* overflow: hidden; */
   font-size: var(--step-1);
+  max-width: 910px;
 }
 
 .links{
   display: flex;
+  flex-wrap: wrap;
   flex-direction:column ;
 }
 
@@ -157,29 +169,34 @@ main {
   scale: 0.98;
 }
 
+/*Hover link change color i */
+
+.link:hover i{
+  color: white;
+}
+
 .link.show {
   opacity: 1;
 }
 
-.social {
-  margin-top: auto;
-  position: relative;
-  padding: 20px;
-  font-size: 20px;
-  text-align: center;
-  text-decoration: none;
-  color: #000;
-  font-size: x-large;
-}
+i{
+  color: #426696;
 
-.carditems {
-  flex: 2;
+}
+.social {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
 /* CARD Items */
 .carditems {
-  padding: 2rem;
-  margin-left: 1.5rem;
+  /* border: #000 3px solid; */
+  flex: 2;
+  padding: 0.8rem;
+  /* margin-left: 1.5rem; */
   border-radius: 1rem;
   display: flex;
   align-items: center;
@@ -189,8 +206,13 @@ main {
     rgba(255, 255, 255, 0.6),
     rgba(255, 255, 255, 0.2)
   );
-  height: 40rem;
+
   overflow-y: scroll;
+
+/* RESPONSIVE */
+  width: 99%;
+  max-width: 900px;
+  min-width: 300px;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -210,14 +232,33 @@ main {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-  max-width: 50rem;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3 ease-in-out;
 }
 
+
+.inside-card.fade{
+  opacity: 0;
+}
 /* .inside-card.show{
     opacity: 1;
   } */
+.grid{
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      ". . ."
+      ". . ."
+      ". . ."; 
+  
+}
+
 .card {
   display: flex;
   background: linear-gradient(
@@ -297,8 +338,8 @@ main {
   border: 1px solid #fff;
   overflow: hidden;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: space-evenly;
+  align-items: center;
   /* height: 100%; */
 }
 
@@ -551,7 +592,12 @@ h4 {
   filter: drop-shadow(16px 27px 25px #000);
 }
 
-.overlay i:active {
+i:hover{
+  color: rgb(255, 255, 255);
+
+}
+
+ i:active {
   scale: 0.95;
 }
 
@@ -584,10 +630,45 @@ h4 {
   }
   .dashboard{
     flex-direction: row;
+    padding: 0;
     /* width: 50px; */
-
   }
+  .dashboard .info{
+    display: none;
+  }
+
+  .dashboard .prof{
+    margin-left: 1rem;
+    width: 15vw;
+    max-width: 100px;
+  }
+
   .links{
     flex-direction: row;
+    margin-right: 3px;
+  }
+
+  .link{
+    font-size: max(1.3vw, 9px);
+  }
+
+  .social{
+display: none;
+  }
+  p{
+    font-size: var(--step--1);
   }
 }
+
+@media only screen and (max-width: 1200px) {
+  .inside-card{
+    /* padding-top: 15rem; */
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .inside-card{
+    /* padding-top: 25rem; */
+  }
+}
+

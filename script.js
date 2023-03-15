@@ -64,23 +64,46 @@ const projectsData = [
 ];
 var exp = document.querySelector(".exp");
 var changeBox = document.querySelector(".inside-card");
-// console.log(exp);
-var box = document.querySelector("box");
+var elements = document.querySelectorAll(".link");
+console.log(elements);
+
+elements.forEach(element => {
+  element.addEventListener("click", function(e) {
+    console.log(e.target.innerText);
+      changeBox.classList.toggle("fade")
+      console.log(itemsWithoutCurrent);
+  });
+ });
+// console.log(link);
+
 mainShow();
 
+// link[1].onclick = function name() {
+//   console.log("fade");
+//   changeBox.classList.toggle("fade")
+// }
+
+function fade() {
+  console.log("fade");
+
+  //   if(changeBox.classList.contains("fade-out")){
+  //     changeBox.classList.remove("fade-out");
+  //  }else{
+  //   changeBox.classList.add("fade-out");
+  //  }
+
+  // changeBox.classList.toggle('fadeIn');
+}
 function mainShow() {
-  changeBox.style.opacity = "1";
+  // changeBox.style.opacity = "1";
   changeBox.style.flexDirection = "column";
 
   changeBox.innerHTML = `
     <h1>Hello World &#x1F44B !</h1>
     <br>
-
     <p>I'm <strong>Klement Lika</strong>, a Web Developer</p>
     <br>
-
     <p>Hello, This Is Me. I Am Passionate On Coding, Have A Good Learning Attitude, Love Exploring New Things And Accepting New Challenges.
-
     I Started My Bachelor Degree In 2017 At The Department Of Computer Science And Biomedical Informatics At The University Of Thessaly In Greece.
     
     My First Contact With Coding Was In Uni, Learned C And Java. After That I Tried To Learn Some Front End Myself, Ive Done A Couple Of Courses Online Developing Skills And Learning Html Css And Javascript, Recently Got Into React As Well.
@@ -90,7 +113,6 @@ function mainShow() {
     As A Member Of The Community, It Would Be A Great Pleasure If I Could Be Involved In The Coming Cohort And I Hope My Abilities And Passion Would Make Contribution To The Groupmates And Achieve Collective Learning.</p>
     <br>
     <a href="My CV" target="_blank">
-
       <div class="glassbutton">
         <p>View my CV</p>
       </div>
@@ -99,22 +121,19 @@ function mainShow() {
 }
 
 function eduShow() {
-  changeBox.style.opacity = "0";
-  changeBox.style.opacity = "1";
+  // changeBox.style.opacity = "0";
+  // changeBox.style.opacity = "1";
   changeBox.innerHTML = `
     <h1>My Education 👨🏼‍🎓</h1> <br>
-
     <h2> I Started My Bachelor Degree In 2017 At The Department Of Computer Science And Biomedical Informatics At The University Of Thessaly In Greece. </h2>
   `;
 }
 
 function skillsShow() {
   this.link;
-  changeBox.style.opacity = "1";
+  // changeBox.style.opacity = "1";
   changeBox.innerHTML = `
-
     <div class="contentContainer">
-
     <div class="skillBar">
       <h4>HTML</h4>
       <div class="skillBarContainer">
@@ -128,7 +147,6 @@ function skillsShow() {
         <div class="skillBarValue value-80"></div>
       </div>
     </div>
-
     <div class="skillBar">
     <h4>JavaScript</h4>
     <div class="skillBarContainer">
@@ -149,14 +167,12 @@ function skillsShow() {
       <div class="skillBarValue value-40"></div>
     </div>
   </div>
-
     <div class="skillBar">
       <h4>Java</h4>
       <div class="skillBarContainer">
         <div class="skillBarValue value-30"></div>
       </div>
     </div>
-
   
   </div>
   
@@ -165,31 +181,33 @@ function skillsShow() {
 // console.log("skills");
 
 function expShow() {
-  changeBox.style.opacity = "1";
+  // changeBox.style.opacity = "1";
 
   changeBox.innerHTML = "<p>Experience</p>";
 }
 
 const showData = projectsData.map((project, index) => {
   return `
-  <div class="slide-up">
-  <div class="box">
-  <img src="assets/${project.img}" >  
-    <span class="original" >
-      <h1 class= "project-title">${project.title}</h1>
-    </span>
-    <div class="overlay">
-     <a href = "${project.git}" target="_blank"> <i class="fa-brands fa-github"></i> </a> 
-     <a href = "${project.deploy}" target="_blank"> <i class="fa-solid fa-satellite-dish"></i></a>
-  
+    <div class="slide-up">
+    <div class="box">
+    <img src="assets/${project.img}" >  
+      <span class="original" >
+        <h1 class= "project-title">${project.title}</h1>
+      </span>
+      <div class="overlay">
+       <a href = "${project.git}" target="_blank"> <i class="fa-brands fa-github"></i> </a> 
+       <a href = "${project.deploy}" target="_blank"> <i class="fa-solid fa-satellite-dish"></i></a>
+    
+      </div>
     </div>
   </div>
-</div>
   `;
 });
 
 function projShow() {
-  changeBox.classList.add("show");
+  // changeBox.classList.add("grid");
+  // changeBox.classList.remove("inside-card");
+
   changeBox.style.flexDirection = "row";
   changeBox.innerHTML = showData.join("");
 }
